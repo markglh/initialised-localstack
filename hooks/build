@@ -11,4 +11,4 @@ fi
 
 echo "Building on branch $SOURCE_BRANCH with tag $TAG"
 
-docker build --build-arg=LOCALSTACK_DOCKER_IMAGE_TAG=$TAG -t $IMAGE_NAME:$TAG .
+docker build --build-arg=LOCALSTACK_DOCKER_IMAGE_TAG=$TAG -t $IMAGE_NAME .

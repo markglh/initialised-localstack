@@ -58,7 +58,7 @@ From your host, either install `awslocal` or pass the appropriate endpoint overr
 ```bash
 aws --endpoint-url=https://localhost:4568 kinesis --profile=personal --no-verify-ssl list-streams                                                   
 
-/usr/local/Cellar/awscli/1.11.35/libexec/lib/python2.7/site-packages/botocore/vendored/requests/packages/urllib3/connectionpool.py:768: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
   InsecureRequestWarning)
 {
     "StreamNames": [
