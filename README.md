@@ -1,7 +1,7 @@
 # Initialised Localstack
 This image extends the functionality of the default image provided by the awesome [localstack](https://github.com/localstack/localstack).
 
-In a nutshell, localstack enabled you to run a number of AWS services locally for testing.
+In a nutshell, localstack enables you to run a number of AWS services locally for testing.
 
 This image extends that functionality to allow you to start the image fully initialised with your configuration. For example Kinesis Streams, SQS queues, Dynamo Tables, etc.
 
