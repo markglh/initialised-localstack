@@ -1,4 +1,4 @@
-# Initialised Locastack
+# Initialised Localstack
 This image extends the functionality of the default image provided by the awesome [localstack](https://github.com/localstack/localstack).
 
 In a nutshell, localstack enabled you to run a number of AWS services locally for testing.
