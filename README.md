@@ -7,6 +7,9 @@ This image extends that functionality to allow you to start the image fully init
 
 You can do this by providing either a CloudFormation template or a script running `awslocal` Cli commands.
 
+## Versions
+The tagged versions pull the corresponding localstack image. For example, 0.7.4 pulls localstack 0.7.4.
+
 ## Running
 `docker-compose up` will start the stack with the services defined by `SERVICES` in the `docker-compose.yml` or `LOCALSTACK_SERVICES` in the `.env` overrides.
 

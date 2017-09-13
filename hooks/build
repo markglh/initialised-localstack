@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Allows building of different localstack tagged images using  git tags / branches.
-# The build args are passed to the image
+# The build args are passed to the image and correspond to the localstack version
 
 TAG="latest"
 
