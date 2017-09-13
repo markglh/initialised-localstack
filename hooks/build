@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# Allows building of different localstack tagged images using  git tags / branches.
+# The build args are passed to the image
+
+TAG="latest"
+
+if [ "$SOURCE_BRANCH" != "master" ]; then
+    TAG="$SOURCE_BRANCH"
+fi
+
+echo "Building on branch $SOURCE_BRANCH with tag $TAG"
+
+docker build --build-arg=LOCALSTACK_DOCKER_IMAGE_TAG=$TAG -t $TAG .
