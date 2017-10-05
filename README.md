@@ -22,6 +22,9 @@ By default the `init.sh` script creates an AWS stack using the CloudFormation te
 
 Note that the CloudFormation template functionality provided by localstack isn't feature complete, [this](https://github.com/localstack/localstack/tree/master/tests/integration/templates) example `test` templates directory from localstack gives an indication of the currently supported featureset.
 
+## Healthcheck
+The image runs the bootstrapping scripts as a health check. This means that the service isn't considered `healthy` until they complete. This can therefore be used to control startup order within docker compose (see example below). **Do not override the health check!**
+
 ### Runtime overrides
 Two options for overriding this at runtime:
 - To just use a different CloudFormation template mount a Volume over `/opt/bootstrap/templates` containing a `cftemplate.yaml` template.
@@ -30,11 +33,11 @@ Two options for overriding this at runtime:
 [awslocal](https://github.com/localstack/awscli-local) is installed and used for bootstrapping scripts.
 
 # docker-compose
-Here's an example compose file for running the container with kinesis, dynamodb, cloudwatch & Cloudformation. 
+Here's an example compose file for running the container with kinesis, dynamodb, cloudwatch & Cloudformation. Startup order is controlled using `depends_on`.
 This mounts over the `cftemplate.yml` with a template in the same directory as the compose file:
 
 ```yaml
-version: "3.3"
+version: "2.3"
 
 services:
   localstack:
@@ -51,6 +54,12 @@ services:
     ports:
       - "4567-4582:4567-4582"
       - "8080:8080"
+
+  some-service:
+    image: myorg/some-service
+      depends_on:
+        localstack:
+          condition: service_healthy
 ```
 
 Note that the environment variables supply default values but can be overridden using a `.env` file.
