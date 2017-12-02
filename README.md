@@ -57,9 +57,9 @@ services:
 
   some-service:
     image: myorg/some-service
-      depends_on:
-        localstack:
-          condition: service_healthy
+    depends_on:
+      localstack:
+        condition: service_healthy
 ```
 
 Note that the environment variables supply default values but can be overridden using a `.env` file.
